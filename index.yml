@@ -1,0 +1,190 @@
+parser: '@typescript-eslint/parser'
+env:
+  browser: true
+  es6: true
+  node: true
+extends:
+  - 'eslint:recommended'
+  - 'plugin:import/errors'
+  - 'plugin:import/warnings'
+  - 'plugin:import/typescript'
+plugins:
+  - '@typescript-eslint'
+  - sort-keys-fix
+  - typescript-sort-keys
+  - import
+rules:
+  '@typescript-eslint/indent':
+    - error
+    - 2
+  '@typescript-eslint/no-angle-bracket-type-assertion': 0
+  array-bracket-spacing:
+    - error
+    - never
+  import/named: 0
+  import/no-unused-modules:
+    - 1
+  import/order:
+    - error
+    - groups:
+        - builtin
+        - external
+        - internal
+        - - parent
+          - sibling
+          - index
+      newlines-between: always
+  jsx-a11y/alt-text:
+    - 0
+  jsx-quotes:
+    - error
+    - prefer-single
+  max-len:
+    - 1
+    - code: 160
+      ignoreRegExpLiterals: true
+      ignoreTemplateLiterals: true
+      ignoreUrls: true
+      tabWidth: 2
+  no-console: 0
+  no-multiple-empty-lines:
+    - error
+    - max: 1
+  no-trailing-spaces: error
+  object-curly-spacing:
+    - error
+    - always
+    - arraysInObjects: true
+      objectsInObjects: true
+  quotes:
+    - 2
+    - single
+    - avoid-escape
+  react/destructuring-assignment:
+    - 1
+    - always
+    - ignoreClassFields: true
+  react/display-name: 0
+  react/jsx-closing-bracket-location:
+    - 1
+    - tag-aligned
+  react/jsx-first-prop-new-line:
+    - 1
+    - multiline
+  react/jsx-fragments:
+    - 2
+  react/jsx-handler-names: 0
+  react/jsx-max-depth:
+    - 1
+    - max: 4
+  react/jsx-max-props-per-line:
+    - 1
+    - maximum: 1
+      when: always
+  react/jsx-no-duplicate-props:
+    - 2
+    - ignoreCase: true
+  react/jsx-pascal-case:
+    - 2
+  react/jsx-props-no-multi-spaces:
+    - 2
+  react/jsx-sort-props:
+    - 2
+    - callbacksLast: true
+      ignoreCase: true
+      shorthandFirst: true
+  react/jsx-tag-spacing:
+    - error
+    - afterOpening: never
+      beforeClosing: allow
+      beforeSelfClosing: always
+      closingSlash: allow
+  react/jsx-uses-react: error
+  react/jsx-uses-vars: error
+  react/jsx-wrap-multilines:
+    - error
+  react/no-access-state-in-setstate: 1
+  react/no-children-prop: 1
+  react/no-danger: 1
+  react/no-deprecated: error
+  react/no-did-mount-set-state:
+    - error
+  react/no-did-update-set-state:
+    - error
+  react/no-direct-mutation-state:
+    - error
+  react/no-multi-comp: 0
+  react/no-this-in-sfc:
+    - error
+  react/no-typos:
+    - error
+  react/no-unescaped-entities:
+    - error
+  react/no-unsafe:
+    - error
+    - checkAliases: true
+  react/no-will-update-set-state:
+    - error
+  react/prefer-es6-class:
+    - error
+    - always
+  react/prefer-stateless-function:
+    - error
+    - ignorePureComponents: true
+  react/prop-types: 0
+  react/require-render-return:
+    - error
+  react/self-closing-comp:
+    - error
+    - component: true
+      html: true
+  react/sort-comp:
+    - 2
+    - order:
+        - instance-variables
+        - static-methods
+        - contextType
+        - lifecycle
+        - everything-else
+        - render
+  react/state-in-constructor:
+    - 2
+    - never
+  react/style-prop-object:
+    - 2
+  semi:
+    - error
+    - always
+    - omitLastInOneLineBlock: true
+  typescript-sort-keys/interface: error
+  typescript-sort-keys/string-enum: error
+  sort-keys-fix/sort-keys-fix:
+    - error
+    - asc
+    - caseSensitive: false
+      natural: true
+settings:
+  import/resolver:
+    node:
+      extensions:
+        - .js
+        - .jsx
+        - .ts
+        - .tsx
+        - .scss
+      paths:
+        - src
+  linkComponents:
+    - Hyperlink
+    - linkAttribute: to
+      name: Link
+  propWrapperFunctions:
+    - forbidExtraProps
+    - object: Object
+      property: freeze
+    - property: myFavoriteWrapper
+  react:
+    createClass: createReactClass
+    flowVersion: '0.53'
+    pragma: React
+    version: detect

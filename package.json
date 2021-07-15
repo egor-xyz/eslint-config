@@ -1,0 +1,27 @@
+{
+  "name": "@egor.xyz/eslint-config",
+  "description": "ESLint config",
+  "author": "Egor Stronhin",
+  "version": "0.0.8",
+  "license": "MIT",
+  "main": "index.yml",
+  "repository": "https://github.com/egor-xyz/eslint-config",
+  "keywords": [
+    "eslint",
+    "plugin",
+    "linter"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "eslint": "7.30.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "4.28.3",
+    "@typescript-eslint/parser": "4.28.3",
+    "eslint-plugin-flowtype": "5.8.0",
+    "eslint-plugin-sort-keys-fix": "1.1.1",
+    "eslint-plugin-typescript-sort-keys": "1.7.0"
+  }
+}
