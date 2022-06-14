@@ -1,27 +1,42 @@
-parser: '@typescript-eslint/parser'
+parser: "@typescript-eslint/parser"
 env:
   browser: true
   es6: true
   node: true
 extends:
-  - 'eslint:recommended'
-  - 'plugin:import/errors'
-  - 'plugin:import/warnings'
-  - 'plugin:import/typescript'
+  - "eslint:recommended"
+  - "plugin:import/errors"
+  - "plugin:import/warnings"
+  - "plugin:import/typescript"
 plugins:
-  - '@typescript-eslint'
+  - "@typescript-eslint"
   - sort-keys-fix
   - typescript-sort-keys
   - import
 rules:
-  '@typescript-eslint/indent':
+  comma-dangle:
+    - error
+    - never
+  prefer-destructuring:
+    - error
+    - array: true
+      object: true
+    - enforceForRenamedProperties: false
+  "@typescript-eslint/member-delimiter-style":
+    - error
+  "@typescript-eslint/no-unused-vars":
+    - error
+  "@typescript-eslint/indent":
     - error
     - 2
-  '@typescript-eslint/no-angle-bracket-type-assertion': 0
+  "@typescript-eslint/no-angle-bracket-type-assertion": 0
   array-bracket-spacing:
     - error
     - never
   import/named: 0
+  import/no-mutable-exports: error
+  import/first: error
+  import/no-duplicates: error
   import/no-unused-modules:
     - 1
   import/order:
@@ -39,6 +54,12 @@ rules:
   jsx-quotes:
     - error
     - prefer-single
+  no-shadow-restricted-names: error
+  no-useless-concat: error
+  no-useless-escape: error
+  object-shorthand: error
+  prefer-arrow-callback: error
+  prefer-template: error
   max-len:
     - 1
     - code: 160
@@ -56,6 +77,14 @@ rules:
     - always
     - arraysInObjects: true
       objectsInObjects: true
+  wrap-iife: error
+  no-new-wrappers: error
+  no-new-func: 2
+  eol-last:
+    - error
+  prefer-spread: error
+  prefer-rest-params: error
+  prefer-const: error
   quotes:
     - 2
     - single
@@ -73,6 +102,7 @@ rules:
     - multiline
   react/jsx-fragments:
     - 2
+    - syntax
   react/jsx-handler-names: 0
   react/jsx-max-depth:
     - 1
@@ -185,6 +215,6 @@ settings:
     - property: myFavoriteWrapper
   react:
     createClass: createReactClass
-    flowVersion: '0.53'
+    flowVersion: "0.53"
     pragma: React
     version: detect
