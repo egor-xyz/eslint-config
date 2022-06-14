@@ -41,7 +41,3 @@ module.exports = {
   extends: '@egor.xyz'
 };
 ```
-
-## License
-
-Devkitty is [MIT licensed](./LICENSE).
