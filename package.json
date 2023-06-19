@@ -2,7 +2,7 @@
   "name": "@egor.xyz/eslint-config",
   "description": "ESLint config",
   "author": "Egor Stronhin",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "license": "MIT",
   "main": "index.yml",
   "repository": "https://github.com/egor-xyz/eslint-config",
