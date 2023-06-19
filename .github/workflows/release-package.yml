@@ -1,6 +1,12 @@
 name: Node.js Package
+
 on:
   workflow_dispatch:
+
+concurrency:
+  group: eslint-config-CD-${{ github.head_ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -9,11 +15,21 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          node-version: 16
-          cache: "npm"
+          always-auth: true
+          node-version-file: .nvmrc
+          check-latest: true
+          cache: npm
+
       - run: npm ci
-      - run: npm publish --access public
+
+      - name: Release
+        run: |
+          npm version minor
+          npm publish --access public
+          git push
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
