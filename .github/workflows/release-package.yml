@@ -23,24 +23,11 @@ env:
   GIT_CREDENTIALS: ${{ format('{0}:{1}', github.event.head_commit.committer.name,secrets.GITHUB_TOKEN) }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-permissions:
-  actions: write
-  checks: write
-  contents: write
-  deployments: write
-  issues: write
-  packages: write
-  pull-requests: write
-  repository-projects: write
-  security-events: write
-  statuses: write
-  id-token: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
     steps:
       - uses: actions/checkout@v3
@@ -59,5 +46,5 @@ jobs:
       - name: Release
         run: |
           npm version minor
-          # npm publish --access public
+          npm publish --access public
           git push
