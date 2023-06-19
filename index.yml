@@ -193,6 +193,12 @@ rules:
     - asc
     - caseSensitive: false
       natural: true
+  no-implicit-coercion:
+    - error
+    - boolean: true
+      number: true
+      string: false
+      disallowTemplateShorthand: false
 settings:
   import/resolver:
     node:
