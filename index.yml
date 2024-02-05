@@ -1,42 +1,44 @@
-parser: "@typescript-eslint/parser"
 env:
   browser: true
   es6: true
   node: true
+globals:
+  jsx: true
 extends:
-  - "eslint:recommended"
-  - "plugin:import/errors"
-  - "plugin:import/warnings"
-  - "plugin:import/typescript"
+  - eslint:recommended
+  - plugin:import/errors
+  - plugin:import/warnings
+  - plugin:import/typescript
+  - plugin:react/recommended
+  - plugin:react/jsx-runtime
+  - prettier
+parser: '@typescript-eslint/parser'
 plugins:
-  - "@typescript-eslint"
+  - '@typescript-eslint'
   - sort-keys-fix
   - typescript-sort-keys
   - import
 rules:
-  comma-dangle:
+  '@typescript-eslint/indent': off
+  '@typescript-eslint/member-delimiter-style':
     - error
-    - never
-  prefer-destructuring:
+  '@typescript-eslint/no-angle-bracket-type-assertion': 0
+  '@typescript-eslint/no-unused-vars':
     - error
-    - array: true
-      object: true
-    - enforceForRenamedProperties: false
-  "@typescript-eslint/member-delimiter-style":
-    - error
-  "@typescript-eslint/no-unused-vars":
-    - error
-  "@typescript-eslint/indent":
-    - error
-    - 2
-  "@typescript-eslint/no-angle-bracket-type-assertion": 0
   array-bracket-spacing:
     - error
     - never
-  import/named: 0
-  import/no-mutable-exports: error
+  comma-dangle:
+    - error
+    - never
+  eol-last:
+    - error
   import/first: error
+  import/named: 0
   import/no-duplicates: error
+  import/no-mutable-exports: error
+  import/no-named-as-default: 0
+  import/no-unresolved: 0
   import/no-unused-modules:
     - 1
   import/order:
@@ -54,12 +56,6 @@ rules:
   jsx-quotes:
     - error
     - prefer-single
-  no-shadow-restricted-names: error
-  no-useless-concat: error
-  no-useless-escape: error
-  object-shorthand: error
-  prefer-arrow-callback: error
-  prefer-template: error
   max-len:
     - 1
     - code: 160
@@ -68,23 +64,38 @@ rules:
       ignoreUrls: true
       tabWidth: 2
   no-console: 0
+  no-implicit-coercion:
+    - error
+    - boolean: true
+      disallowTemplateShorthand: false
+      number: true
+      string: false
   no-multiple-empty-lines:
     - error
     - max: 1
+  no-new-func: 2
+  no-new-wrappers: error
+  no-shadow-restricted-names: error
   no-trailing-spaces: error
+  no-useless-concat: error
+  no-useless-escape: error
+  no-undef: 0
   object-curly-spacing:
     - error
     - always
     - arraysInObjects: true
       objectsInObjects: true
-  wrap-iife: error
-  no-new-wrappers: error
-  no-new-func: 2
-  eol-last:
-    - error
-  prefer-spread: error
-  prefer-rest-params: error
+  object-shorthand: error
+  prefer-arrow-callback: error
   prefer-const: error
+  prefer-destructuring:
+    - error
+    - array: true
+      object: true
+    - enforceForRenamedProperties: false
+  prefer-rest-params: error
+  prefer-spread: error
+  prefer-template: error
   quotes:
     - 2
     - single
@@ -162,6 +173,7 @@ rules:
     - error
     - ignorePureComponents: true
   react/prop-types: 0
+  react/react-in-jsx-scope: 0
   react/require-render-return:
     - error
   react/self-closing-comp:
@@ -186,20 +198,43 @@ rules:
     - error
     - always
     - omitLastInOneLineBlock: true
-  typescript-sort-keys/interface: error
-  typescript-sort-keys/string-enum: error
   sort-keys-fix/sort-keys-fix:
     - error
     - asc
     - caseSensitive: false
       natural: true
-  no-implicit-coercion:
-    - error
-    - boolean: true
-      number: true
-      string: false
-      disallowTemplateShorthand: false
+  typescript-sort-keys/interface: error
+  typescript-sort-keys/string-enum: error
+  wrap-iife: error
 settings:
+  react:
+    createClass: createReactClass
+    pragma: React
+    fragment: Fragment
+    version: detect
+    flowVersion: '0.53'
+  propWrapperFunctions:
+    - forbidExtraProps
+    - property: freeze
+      object: Object
+    - property: myFavoriteWrapper
+    - property: forbidExtraProps
+      exact: true
+  componentWrapperFunctions:
+    - observer
+    - property: styled
+    - property: observer
+      object: Mobx
+    - property: observer
+      object: <pragma>
+  formComponents:
+    - CustomForm
+    - name: Form
+      formAttribute: endpoint
+  linkComponents:
+    - Hyperlink
+    - name: Link
+      linkAttribute: to
   import/resolver:
     node:
       extensions:
@@ -210,17 +245,3 @@ settings:
         - .scss
       paths:
         - src
-  linkComponents:
-    - Hyperlink
-    - linkAttribute: to
-      name: Link
-  propWrapperFunctions:
-    - forbidExtraProps
-    - object: Object
-      property: freeze
-    - property: myFavoriteWrapper
-  react:
-    createClass: createReactClass
-    flowVersion: "0.53"
-    pragma: React
-    version: detect
