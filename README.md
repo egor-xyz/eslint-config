@@ -23,8 +23,7 @@ Add to `package.json` in the root of your project:
 ...
 "eslintConfig": {
   "extends": [
-    "react-app",
-    "react-app/jest",
+    ...,
     "@egor.xyz"
   ]
 },
