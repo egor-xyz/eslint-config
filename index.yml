@@ -11,14 +11,23 @@ extends:
   - plugin:import/typescript
   - plugin:react/recommended
   - plugin:react/jsx-runtime
+  - plugin:react-hooks/recommended
   - prettier
 parser: '@typescript-eslint/parser'
 plugins:
   - '@typescript-eslint'
+  - react-refresh
   - sort-keys-fix
   - typescript-sort-keys
   - import
+ignorePatterns:
+  - dist
+  - build
+  - node_modules
 rules:
+  'react-refresh/only-export-components':
+    - warn
+    - allowConstantExport: true
   '@typescript-eslint/indent': off
   '@typescript-eslint/member-delimiter-style':
     - error
@@ -116,8 +125,8 @@ rules:
     - syntax
   react/jsx-handler-names: 0
   react/jsx-max-depth:
-    - 1
-    - max: 4
+    - 2
+    - max: 5
   react/jsx-max-props-per-line:
     - 1
     - maximum: 1
