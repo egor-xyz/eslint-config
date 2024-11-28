@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/egor-xyz/eslint-config/compare/v1.0.0...v2.0.0) (2024-11-28)
+
+
+### Features
+
+* Egor's ESLint flat config ([ce588a7](https://github.com/egor-xyz/eslint-config/commit/ce588a71bf7e1a86744d37ce0b578d7e93086993))
+
+
+### BREAKING CHANGES
+
+* Required ESLint >=9
+
 # 1.0.0 (2024-11-28)
 
 
