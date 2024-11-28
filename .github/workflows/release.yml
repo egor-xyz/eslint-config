@@ -1,15 +1,9 @@
-name: Node.js Package
+name: Release
 
 on:
-  workflow_dispatch:
   push:
     branches:
-      - master
-    paths-ignore:
-      - "package.json"
-      - "package-lock.json"
-      - ".github/**"
-      - "README.md"
+      - main
 
 concurrency:
   group: eslint-config-CD-${{ github.head_ref }}
@@ -23,28 +17,37 @@ env:
   GIT_CREDENTIALS: ${{ format('{0}:{1}', github.event.head_commit.committer.name,secrets.GITHUB_TOKEN) }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      packages: write
+      issues: write
+      pull-requests: write
+      id-token: write
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           always-auth: true
-          registry-url: "https://registry.npmjs.org"
+          registry-url: 'https://registry.npmjs.org'
           node-version-file: .nvmrc
           check-latest: true
           cache: npm
 
       - run: npm ci
 
-      - name: Release
-        run: |
-          npm version minor
-          npm publish --access public
-          git push
+      - name: Run Semantic Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
