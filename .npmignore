@@ -1,4 +1,8 @@
 .github
-node_modules
-.gitignore
+test
+.npmrc.template
 .nvmrc
+.prettierrc
+.releaserc.json
+eslint.config.js
+tsconfig*.json

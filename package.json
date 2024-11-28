@@ -1,17 +1,22 @@
 {
   "name": "@egor.xyz/eslint-config",
-  "description": "ESLint config",
+  "description": "Egor's ESLint flat config",
   "author": "Egor Stronhin",
   "version": "2.1.0",
+  "type": "module",
   "license": "MIT",
-  "main": "index.yml",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/egor-xyz/eslint-config.git"
   },
-  "scripts": {},
+  "scripts": {
+    "inspect": "eslint --inspect-config",
+    "test": "eslint --config index.js test/"
+  },
   "keywords": [
     "eslint",
+    "flat-config",
     "plugin",
     "linter"
   ],
@@ -19,19 +24,25 @@
     "access": "public"
   },
   "peerDependencies": {
-    "eslint": "^8.57.0",
-    "typescript": "^5.3.3"
-  },
-  "dependencies": {
-    "@typescript-eslint/eslint-plugin": "7.1.0",
-    "@typescript-eslint/parser": "7.1.0",
+    "@eslint/js": "^9.12.0",
+    "eslint": "^9.12.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-flowtype": "8.0.3",
-    "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-react": "7.33.2",
-    "eslint-plugin-react-hooks": "4.6.0",
-    "eslint-plugin-react-refresh": "0.4.5",
-    "eslint-plugin-sort-keys-fix": "1.1.2",
-    "eslint-plugin-typescript-sort-keys": "3.2.0"
+    "eslint-plugin-perfectionist": "^3.8.0",
+    "eslint-plugin-react": "^7.37.1",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.12",
+    "typescript-eslint": "^8.8.1"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.0",
+    "@semantic-release/npm": "^12.0.1",
+    "@semantic-release/release-notes-generator": "^14.0.1",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
+    "react": "^18.3.1",
+    "typescript": "^5.6.3"
   }
 }
