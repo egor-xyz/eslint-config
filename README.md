@@ -1,9 +1,9 @@
 # eslint-config
 
-This is my [ESLint 9](https://eslint.org/) flat configuration for any Node or React project using TypeScript
+This is my [ESLint 9](https://eslint.org/) flat configuration for any Node or React project using TypeScript.
 
 It includes all my favorite rules and helps keep codebases aligned
-and in-sync with the highest standards
+and in-sync with the highest standards.
 
 ### Install the package
 
