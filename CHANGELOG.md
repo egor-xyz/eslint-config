@@ -1,3 +1,10 @@
+# [3.5.0](https://github.com/egor-xyz/eslint-config/compare/v3.4.0...v3.5.0) (2025-04-08)
+
+
+### Features
+
+* Update packages ([a982bbb](https://github.com/egor-xyz/eslint-config/commit/a982bbbc106e74bfc5b37cc3965ddad2e960bc39))
+
 # [3.4.0](https://github.com/egor-xyz/eslint-config/compare/v3.3.0...v3.4.0) (2025-04-08)
 
 
