@@ -2,7 +2,7 @@
   "name": "@egor.xyz/eslint-config",
   "description": "Egor's ESLint flat config",
   "author": "Egor Stronhin",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "type": "module",
   "license": "MIT",
   "main": "index.js",
