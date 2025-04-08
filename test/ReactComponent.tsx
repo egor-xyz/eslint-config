@@ -5,8 +5,8 @@ import { Test } from './Test';
 const myArray = [5, 1, 2, 3];
 const SingleLineJSX = <p>Hello</p>;
 
-type T2 = { a: string } & { b: string };
 type T = 'DeletedAt' | 'DeleteForever';
+type T2 = { a: string } & { b: string };
 
 declare const foo2: string;
 const test1 = foo2.startsWith('a'); // text[0] === 'a';
@@ -72,8 +72,8 @@ export const App = () => {
         <>
           <ReactComponent
             active
-            lastName="Doe"
-            name="John"
+            lastName='Doe'
+            name='John'
             onClick={() => {
               console.log('clicked');
             }}
@@ -90,9 +90,9 @@ export const App = () => {
 
       <div>
         <a
-          href="https://example.com"
-          rel="noreferrer"
-          target="_blank"
+          href='https://example.com'
+          rel='noreferrer'
+          target='_blank'
         >
           Example
         </a>
@@ -100,7 +100,7 @@ export const App = () => {
         <div>test</div>
       </div>
 
-      <div className="a">test</div>
+      <div className='a'>test</div>
 
       {myArray.map((item) => (
         <div key={item}>{item}</div>
