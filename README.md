@@ -8,7 +8,7 @@ and in-sync with the highest standards.
 ### Install the package
 
 ```shell
-npm i -D @egor.xyz/eslint-config
+npm i -D eslint @egor.xyz/eslint-config
 ```
 
 Create an `eslint.config.mjs` file, or `eslint.config.js` if you have `type: "module"`, in the root of your project.
